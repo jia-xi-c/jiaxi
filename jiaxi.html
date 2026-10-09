@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOOK 少女换装小屋</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
 body{
   background:#fff0f8;
   overflow-x:hidden;
   min-height:100vh;
 }
-/* 闪光粒子 */
+/*闪光粒子*/
 .sparkle{
   position:fixed;
   width:8px;height:8px;
@@ -23,17 +23,17 @@ body{
   z-index:1;
 }
 @keyframes spark{
-  0%{opacity:0;transform:scale(0.2);}
+  0%{opacity:0;transform:scale(0.3);}
   50%{opacity:1;transform:scale(1);}
-  100%{opacity:0;transform:scale(0.3);}
+  100%{opacity:0;transform:scale(0.2);}
 }
-/* 泡泡 */
+/*泡泡*/
 .bubble{
   position:fixed;
   border-radius:50%;
-  background:radial-gradient(circle, #ffd7f0 0%, rgba(255,180,220,0.1) 70%,transparent 100%);
-  border:1px solid rgba(255,160,210,0.4);
-  animation:float 12s infinite ease-in-out;
+  background:radial-gradient(circle,#ffd7f0 0%,rgba(255,180,220,0.05) 70%,transparent);
+  border:1px solid rgba(255,160,210,0.35);
+  animation:float 12s ease-in-out infinite;
   pointer-events:none;
   z-index:0;
 }
@@ -42,19 +42,18 @@ body{
   50%{opacity:0.7;}
   100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
 }
-/* 蕾丝蝴蝶结兔子装饰 */
+/*角落装饰*/
 .deco{
   position:fixed;
-  width:180px;
-  opacity:0.85;
+  font-size:48px;
+  opacity:0.75;
   pointer-events:none;
   z-index:2;
 }
-.deco1{top:40px;left:10px;}
-.deco2{top:40px;right:10px;transform:scaleX(-1);}
-.deco3{bottom:20px;left:30px;}
-.deco4{bottom:20px;right:30px;transform:scaleX(-1);}
-/* 页面容器 */
+.d1{top:32px;left:16px;}
+.d2{top:32px;right:16px;transform:scaleX(-1);}
+.d3{bottom:24px;left:24px;}
+.d4{bottom:24px;right:24px;transform:scaleX(-1);}
 .page{
   display:none;
   position:relative;
@@ -63,7 +62,6 @@ body{
   min-height:100vh;
 }
 .page.active{display:block;}
-/* 封面页 */
 #cover{
   display:flex;
   flex-direction:column;
@@ -74,8 +72,8 @@ body{
 }
 .title{
   font-size:72px;
-  color:#ff69b4;
-  text-shadow:0 0 12px #ffb8e2, 0 0 24px #ffadd9;
+  color:#ff489c;
+  text-shadow:0 0 12px #ffb8dd,0 0 24px #ffadd6;
   letter-spacing:6px;
 }
 .btn-group{
@@ -89,7 +87,7 @@ body{
   border:none;
   border-radius:40px;
   background:linear-gradient(135deg,#ffb8e2,#ff87c8);
-  color:white;
+  color:#fff;
   font-size:24px;
   box-shadow:0 4px 16px #ffb0dd;
   cursor:pointer;
@@ -98,11 +96,10 @@ body{
 }
 .btn:hover{
   transform:scale(1.06);
-  box-shadow:0 0 20px #ff9ed6;
+  box-shadow:0 0 20px #ff98cc;
 }
-/* 人物面板 */
 .panel{
-  background:rgba(255,255,255,0.75);
+  background:rgba(255,255,255,0.78);
   border-radius:24px;
   padding:24px;
   max-width:800px;
@@ -111,7 +108,7 @@ body{
   box-shadow:0 0 18px #ffd4ec;
 }
 .panel h2{
-  color:#ff62ad;
+  color:#ff62aa;
   text-align:center;
   margin-bottom:16px;
 }
@@ -119,7 +116,7 @@ body{
   margin:18px 0;
 }
 .opt-row label{
-  color:#c84886;
+  color:#b84478;
   font-size:18px;
   display:block;
   margin-bottom:8px;
@@ -137,10 +134,9 @@ body{
   transition:0.25s;
 }
 .opt-item.active{
-  border-color:#ff5ca8;
-  box-shadow:0 0 10px #ff78bb;
+  border-color:#ff5ca0;
+  box-shadow:0 0 10px #ff78b2;
 }
-/* 换装区域 */
 .dress-area{
   display:flex;
   gap:20px;
@@ -154,10 +150,9 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  border:2px solid #ffb8e2;
+  border:2px solid #ffb8dd;
   cursor:pointer;
 }
-/* 设置页开关 */
 .switch-row{
   display:flex;
   justify-content:space-between;
@@ -175,7 +170,7 @@ body{
 .switch::after{
   content:"";
   width:26px;height:26px;
-  background:white;
+  background:#fff;
   border-radius:50%;
   position:absolute;
   top:3px;left:3px;
@@ -189,20 +184,20 @@ body{
   padding:8px 16px;
   border-radius:20px;
   border:none;
-  background:#ffadd9;
+  background:#ffadd6;
   color:white;
+  font-size:16px;
   cursor:pointer;
 }
 </style>
 </head>
 <body>
-<!-- 装饰：蕾丝蝴蝶结兔子 -->
-<div class="deco deco1">🐇🎀</div>
-<div class="deco deco2">🎀🐇</div>
-<div class="deco deco3">🐇🎀</div>
-<div class="deco deco4">🎀🐇</div>
+<div class="deco d1">🐇🎀</div>
+<div class="deco d2">🎀🐇</div>
+<div class="deco d3">🐇🎀</div>
+<div class="deco d4">🎀🐇</div>
 
-<!-- 封面页 -->
+<!--封面-->
 <div id="cover" class="page active">
   <h1 class="title">LOOK</h1>
   <div class="btn-group">
@@ -212,7 +207,7 @@ body{
   </div>
 </div>
 
-<!-- 换装页面 -->
+<!--换装页-->
 <div id="dressPage" class="page">
   <button class="back-btn" onclick="goPage('cover')">← 返回</button>
   <div class="panel">
@@ -230,27 +225,23 @@ body{
   </div>
 </div>
 
-<!-- 人物自定义页面 -->
+<!--捏脸页-->
 <div id="charPage" class="page">
   <button class="back-btn" onclick="goPage('cover')">← 返回</button>
   <div class="panel">
-    <h2>💖 捏脸 - 人物设置</h2>
-    <!-- 肤色15款 -->
+    <h2>💖 捏脸设置</h2>
     <div class="opt-row">
       <label>肤色（15款）</label>
       <div class="opt-container" id="skinList"></div>
     </div>
-    <!-- 瞳孔15款 -->
     <div class="opt-row">
-      <label>瞳孔颜色（15款）</label>
+      <label>瞳色（15款）</label>
       <div class="opt-container" id="eyeList"></div>
     </div>
-    <!-- 发色15款 -->
     <div class="opt-row">
       <label>发色（15款）</label>
-      <div class="opt-container" id="hairColorList"></div>
+      <div class="opt-container" id="hairList"></div>
     </div>
-    <!-- 发型15款 -->
     <div class="opt-row">
       <label>发型（15款）</label>
       <div class="opt-container" id="hairStyleList"></div>
@@ -258,45 +249,45 @@ body{
   </div>
 </div>
 
-<!-- 设置选项页 -->
+<!--设置页-->
 <div id="settingPage" class="page">
   <button class="back-btn" onclick="goPage('cover')">← 返回</button>
   <div class="panel">
     <h2>🔔 选项设置</h2>
     <div class="switch-row">
-      <span>页面背景音乐</span>
+      <span>背景音乐</span>
       <div class="switch" id="bgmSwitch" onclick="toggleBgm()"></div>
     </div>
     <div class="switch-row">
       <span>点击音效</span>
-      <div class="switch" id="clickSoundSwitch" onclick="toggleClickSound()"></div>
+      <div class="switch on" id="clickSwitch" onclick="toggleClick()"></div>
     </div>
     <div class="switch-row">
-      <span>闪亮粒子特效</span>
-      <div class="switch" id="sparkSwitch" onclick="toggleSpark()"></div>
+      <span>闪光粒子特效</span>
+      <div class="switch on" id="sparkSwitch" onclick="toggleSpark()"></div>
     </div>
     <div class="switch-row">
-      <span>梦幻泡泡动画</span>
-      <div class="switch" id="bubbleSwitch" onclick="toggleBubble()"></div>
+      <span>漂浮泡泡特效</span>
+      <div class="switch on" id="bubbleSwitch" onclick="toggleBubble()"></div>
     </div>
   </div>
 </div>
 
 <script>
-// 页面切换
+//页面切换
 function goPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   playClickSound();
 }
 
-// 15组肤色
+//15种肤色
 const skinColors = [
   '#ffe8d6','#ffdfc8','#ffd6b8','#ffcba5','#ffc092',
   '#f2b484','#e5a678','#d8986c','#c98a5f','#b87c53',
   '#a46c44','#905c36','#7b4c28','#643c1a','#4c2c0c'
 ];
-//15瞳孔
+//15瞳色
 const eyeColors = [
   '#62371b','#8b5a2b','#a07244','#427020','#609c34',
   '#246b70','#2d8891','#365c9e','#486fc2','#7b48c2',
@@ -308,97 +299,125 @@ const hairColors = [
   '#b85c38','#d47848','#e89258','#ffb068','#ffd080',
   '#d4b2ff','#b288ff','#ff98d8','#ff78b8','#ff6088'
 ];
-//15发型名称
+//15发型名字
 const hairStyleNames = [
   '长直黑长','双马尾','公主卷','锁骨短发','丸子头',
   '羊毛卷','齐刘海长卷','高马尾','波波头','侧编发',
-  '半扎蝴蝶结','甜妹水母头','古风长披发','狼尾短发','蛋卷短发'
+  '半扎蝴蝶结','水母头','古风披发','狼尾短发','蛋卷头'
 ];
 
-//渲染选项
+//渲染颜色选项
 function renderColorList(containerId,colorList){
   const wrap = document.getElementById(containerId);
-  wrap.innerHTML = "";
+  wrap.innerHTML = '';
   colorList.forEach((c,i)=>{
     const div = document.createElement('div');
-    div.className = "opt-item";
+    div.className = 'opt-item';
     div.style.background = c;
-    div.onclick=()=>{
-      wrap.querySelectorAll('.opt-item').forEach(x=>x.classList.remove('active'));
+    div.onclick = ()=>{
+      wrap.querySelectorAll('.opt-item').forEach(d=>d.classList.remove('active'));
       div.classList.add('active');
       playClickSound();
     }
     wrap.appendChild(div);
   })
 }
+//渲染发型
 function renderHairStyle(){
   const wrap = document.getElementById('hairStyleList');
-  wrap.innerHTML = "";
-  hairStyleNames.forEach((name,i)=>{
+  wrap.innerHTML = '';
+  hairStyleNames.forEach(name=>{
     const div = document.createElement('div');
-    div.className = "opt-item";
-    div.style.background="#ffd8ee";
-    div.style.display="flex";alignItems:"center";justifyContent:"center";
-    div.style.fontSize="10px";textAlign:"center";padding:2px;
+    div.className = 'opt-item';
+    div.style.background='#ffd8ee';
+    div.style.display='flex';
+    div.style.alignItems='center';
+    div.style.justifyContent='center';
+    div.style.fontSize='9px';
+    div.style.textAlign='center';
     div.innerText = name;
-    div.onclick=()=>{
-      wrap.querySelectorAll('.opt-item').forEach(x=>x.classList.remove('active'));
+    div.onclick = ()=>{
+      wrap.querySelectorAll('.opt-item').forEach(d=>d.classList.remove('active'));
       div.classList.add('active');
       playClickSound();
     }
     wrap.appendChild(div);
   })
 }
+
 renderColorList("skinList",skinColors);
 renderColorList("eyeList",eyeColors);
-renderColorList("hairColorList",hairColors);
+renderColorList("hairList",hairColors);
 renderHairStyle();
 
-// 特效控制
-let sparkOn=true,bubbleOn=true,bgmOn=false,clickSoundOn=true;
-function toggleSpark(){sparkOn=!sparkOn;document.getElementById('sparkSwitch').classList.toggle('on');playClickSound();}
-function toggleBubble(){bubbleOn=!bubbleOn;document.getElementById('bubbleSwitch').classList.toggle('on');playClickSound();}
-function toggleBgm(){bgmOn=!bgmOn;document.getElementById('bgmSwitch').classList.toggle('on');playClickSound();}
-function toggleClickSound(){clickSoundOn=!clickSoundOn;document.getElementById('clickSoundSwitch').classList.toggle('on');playClickSound();}
+//开关状态
+let sparkOn = true;
+let bubbleOn = true;
+let bgmOn = false;
+let clickOn = true;
 
-//点击音效（简易哔声）
+function toggleSpark(){
+  sparkOn = !sparkOn;
+  document.getElementById('sparkSwitch').classList.toggle('on',sparkOn);
+  playClickSound();
+}
+function toggleBubble(){
+  bubbleOn = !bubbleOn;
+  document.getElementById('bubbleSwitch').classList.toggle('on',bubbleOn);
+  playClickSound();
+}
+function toggleBgm(){
+  bgmOn = !bgmOn;
+  document.getElementById('bgmSwitch').classList.toggle('on',bgmOn);
+  playClickSound();
+}
+function toggleClick(){
+  clickOn = !clickOn;
+  document.getElementById('clickSwitch').classList.toggle('on',clickOn);
+}
+
+//点击音效
 function playClickSound(){
-  if(!clickSoundOn)return;
+  if(!clickOn) return;
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
-  osc.connect(gain);gain.connect(audioCtx.destination);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
   osc.frequency.value = 700;
-  gain.gain.value = 0.08;
+  osc.type = 'sine';
+  gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
   osc.start();
-  osc.stop(audioCtx.currentTime + 0.08);
+  osc.stop(audioCtx.currentTime+0.12);
 }
 
+//生成闪光粒子
+function createSpark(){
+  if(!sparkOn) return;
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.style.left = Math.random()*100 + 'vw';
+  s.style.top = Math.random()*100 + 'vh';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),3000);
+}
 //生成泡泡
 function createBubble(){
-  if(!bubbleOn)return;
-  const div = document.createElement('div');
-  div.className="bubble";
+  if(!bubbleOn) return;
+  const b = document.createElement('div');
+  b.className = 'bubble';
   const size = 20 + Math.random()*90;
-  div.style.width=size+"px";div.style.height=size+"px";
-  div.style.left = Math.random()*100+"%";
-  div.style.animationDuration = (8+Math.random()*8)+"s";
-  document.body.appendChild(div);
-  setTimeout(()=>div.remove(),16000);
+  b.style.width = size+'px';
+  b.style.height = size+'px';
+  b.style.left = Math.random()*100 + 'vw';
+  b.style.animationDuration = (8 + Math.random()*8)+'s';
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),16000);
 }
-//闪光粒子
-function createSpark(){
-  if(!sparkOn)return;
-  const div = document.createElement('div');
-  div.className="sparkle";
-  div.style.left = Math.random()*100+"%";
-  div.style.top = Math.random()*100+"%";
-  document.body.appendChild(div);
-  setTimeout(()=>div.remove(),3000);
-}
-setInterval(createBubble, 1200);
-setInterval(createSpark, 350);
+
+setInterval(createSpark,350);
+setInterval(createBubble,1200);
 </script>
 </body>
 </html>
-
